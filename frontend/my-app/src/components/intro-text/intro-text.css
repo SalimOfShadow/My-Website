@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Poetsen+One&display=swap");
+.intro-text {
+  font-family: "Orbitron";
+  text-align: center;
+  top: 8vh;
+  font-size: calc(2vh + 2vw);
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+  user-select: none;
+  z-index: 1;
+  position: relative;
+  animation: glow 1s ease-in-out infinite alternate;
+  text-shadow: 0 0 1.67vh #fff, 0 0 3.33vh #fff, 0 0 5vh #e60073,
+    0 0 6.67vh #e60073, 0 0 8.33vh #e60073, 0 0 2.22vh #e60073;
+}
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 1.33vh #fff, 0 0 2.67vh #fff, 0 0 4vh #e60073,
+      0 0 5.33vh #e60073, 0 0 6.67vh #e60073, 0 0 8vh #e60073,
+      0 0 10.33vh #e60073;
+  }
+
+  to {
+    text-shadow: 0 0 2.67vh #fff, 0 0 4.33vh #ff4da6, 0 0 5.67vh #ff4da6,
+      0 0 6.33vh #ff4da6, 0 0 7.67vh #ff4da6, 0 0 8.33vh #ff4da6,
+      0 0 9.67vh #ff4da6;
+  }
+}
+
+.text-word {
+  user-select: none;
+  zoom: 1 !important;
+}

@@ -1,0 +1,16 @@
+.center-character {
+  width: 35%;
+  height: 80%;
+  position: absolute;
+  top: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  user-select: none;
+  filter: "drop-shadow(1px 1px 2px #0000)";
+}
+/* .center-character:hover {
+  filter: drop-shadow(1px 1px 2px #ff0000) drop-shadow(1px 1px 2px #ff7f00)
+    drop-shadow(1px 1px 2px #ffff00);
+} */

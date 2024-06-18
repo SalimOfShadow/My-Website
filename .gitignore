@@ -1,0 +1,4 @@
+/node_modules
+/backend/keys/
+/backend/node_modules/
+keys.env

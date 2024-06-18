@@ -1,0 +1,35 @@
+.centered-container {
+	background-color: rgba(24, 2, 2, 0.322);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 900px;
+	height: 200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-style: solid;
+	border-width: 15px;
+	border-color: rgba(11, 11, 189, 0.534);
+	border-radius: 20px;
+	font-size: 100px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	color: rgb(58, 58, 245);
+	text-align: center;
+}
+
+.centered-container:hover {
+	transition: 0.125s;
+	filter: brightness(186%);
+	cursor: pointer;
+}
+
+.centered-container:active {
+	transition: 0.125s;
+	filter: brightness(376%);
+	cursor: pointer;
+}
+.greeting-text {
+	user-select: none;
+}
