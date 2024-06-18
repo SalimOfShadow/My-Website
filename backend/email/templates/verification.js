@@ -702,7 +702,7 @@ const generateVerificationEmail = (recipient, url) => {
                                                               color: #ffffff;
                                                               font-size: 18px;
                                                             "
-                                                            >1. Modify your
+                                                            >1. Costumize your
                                                             profile to your
                                                             liking!</span
                                                           >

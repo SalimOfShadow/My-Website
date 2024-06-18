@@ -7,8 +7,6 @@ const sendEmail = require('../email/sendEmail.js');
 const dotenv = require('dotenv');
 dotenv.config({ path: './keys/keys.env' });
 
-// https://www.youtube.com/watch?v=72JYhSoVYPc
-
 router.post('/forgot-password', async (req, res) => {
 	try {
 		console.log('Recieving the request');
@@ -31,8 +29,6 @@ router.post('/forgot-password', async (req, res) => {
 			email: user.email,
 		};
 		sendEmail(recipient, 'reset-password', url);
-
-		// sendEmail(recipient, url, "forgot-password")
 
 		console.log(url);
 		res.status(200).send({

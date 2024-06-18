@@ -1,3 +1,5 @@
+const prodEnv = false;
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -24,7 +26,6 @@ const mongoOptions = {
 };
 
 // MongoDB setup :
-
 const mongoose = require('mongoose');
 
 main().catch((err) => console.log(err));

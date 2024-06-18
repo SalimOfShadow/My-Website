@@ -11,22 +11,18 @@ const transporter = nodemailer.createTransport({
 	host: 'smtp.ethereal.email',
 	port: 587,
 	auth: {
-		user: 'mitchel58@ethereal.email',
-		pass: '8VJdEKs5eWyYvqVtkk',
+		user: 'delphia.jacobi@ethereal.email',
+		pass: 'zKxwZz7r3VbyXsXFkk',
 	},
 });
-// Hardcoding recipient's object
 
-async function sendEmail(recipient, emailType, url) {
-	let redirectUrl;
+async function sendEmail(recipient, emailPurpose, url) {
 	let html;
-	if (emailType === 'verify-user') {
-		html = generateVerificationEmail(recipient, redirectUrl);
-		redirectUrl = 'http://localhost:3000/Email';
+	if (emailPurpose === 'verify-user') {
+		html = generateVerificationEmail(recipient, url);
 	}
-	if (emailType === 'reset-password') {
+	if (emailPurpose === 'reset-password') {
 		html = generateResetEmail(recipient, url);
-		redirectUrl = 'http://localhost:3000/';
 	}
 	try {
 		// send mail with defined transport object
