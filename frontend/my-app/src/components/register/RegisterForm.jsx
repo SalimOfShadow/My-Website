@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import validator from 'validator';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -18,9 +18,12 @@ import {
 	validatePassword,
 } from '../../utils/validateCredentials';
 
-const RegisterForm = () => {
+import { handleResponse } from '../../utils/handleResponses';
+
+const RegisterForm = (props) => {
 	const navigate = useNavigate();
-	const [formType, setFormType] = useState('');
+
+	// Declaring States
 	const [username, setUsername] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
@@ -28,8 +31,21 @@ const RegisterForm = () => {
 	const [emailError, setEmailError] = useState('');
 	const [passwordError, setPasswordError] = useState('');
 	const [topMessage, setTopMessage] = useState('');
-	const [buttonInactive, setButtonInactive] = useState(false);
+	const [buttonDisabled, setButtonDisabled] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
+
+	// Adding effects
+
+	useEffect(() => {
+		setTopMessage({
+			message: '',
+			className: '',
+		});
+	}, [isLoading]);
+
+	useEffect(() => {}); // TODO - Add filter: brightness(90%) when the button is inactive
+
+	// Submitting form
 
 	const registerUser = async () => {
 		setIsLoading(true);
@@ -48,50 +64,53 @@ const RegisterForm = () => {
 				body: JSON.stringify(userData),
 			});
 			if (response.ok) {
-				await handleSuccess(response);
+				await handleResponse(response, 'success', setTopMessage);
 				setIsLoading(false);
+				setButtonDisabled(true);
 			} else {
-				await handleFails(response);
+				if (response.status === 409) {
+					handleConflicts(response);
+					return;
+				}
+				await handleResponse(response, 'failure', setTopMessage);
 				setIsLoading(false);
+				setTimeout(() => {
+					setButtonDisabled(false);
+				}, 1000);
 			}
 		} catch (err) {
 			console.error(err);
 			setIsLoading(false);
+			setTimeout(() => {
+				setTopMessage({
+					message: 'Failed to register, please try again later!',
+					className: 'false',
+				});
+			}, 400);
+			setTimeout(() => {
+				setButtonDisabled(false);
+			}, 1000);
 		}
 	};
-
-	const handleSuccess = async (response) => {
-		const data = await response.json();
-		console.log('Submission successful:', data);
-		setTimeout(() => {
-			setTopMessage({
-				message:
-					"You've successfully registered your account! Login to proceed.",
-				className: 'true',
-			});
-		}, 400);
-		setTimeout(() => {
-			navigate('/Login');
-		}, 4000);
-	};
-
-	const handleFails = async (response) => {
+	const handleConflicts = async (response) => {
 		// Handles MongoDB confict error
 		if (response.status === 409) {
+			setIsLoading(false);
 			const errorMessage = await response.json();
 			if (errorMessage.error.split(' ')[1] === 'username') {
 				//If the error complains about an username conflict
 				setTimeout(() => {
 					setUsernameError(errorMessage.error);
 				}, 400);
-				throw new Error(errorMessage.error);
 				//If the error complains about an email conflict
 			} else if (errorMessage.error.split(' ')[1] === 'email') {
 				setTimeout(() => {
 					setEmailError(errorMessage.error);
 				}, 400);
-				throw new Error(errorMessage.error);
 			}
+			setTimeout(() => {
+				setButtonDisabled(false);
+			}, 1000);
 		}
 	};
 	const validateCredentials = () => {
@@ -109,11 +128,9 @@ const RegisterForm = () => {
 	};
 
 	const handleClick = (button) => {
-		if (button === 'register') {
-			if (validateCredentials()) {
-				setButtonInactive(true);
-				registerUser();
-			}
+		if (button === 'register' && validateCredentials()) {
+			setButtonDisabled(true);
+			registerUser();
 		}
 		if (button === 'redirect') {
 			navigate('/register');
@@ -172,19 +189,19 @@ const RegisterForm = () => {
 					></FormInput>
 					<br />
 					<FormButton
-						disabled={buttonInactive}
+						disabled={buttonDisabled}
 						onClick={() => {
 							handleClick('register');
 						}}
 						value="Register"
 					></FormButton>
 					<FormButton
-						disabled={buttonInactive}
+						disabled={buttonDisabled}
 						onClick={() => {
 							setIsLoading(true);
 							setTimeout(() => {
 								setIsLoading(false);
-							}, 1500);
+							}, 1000);
 						}}
 						value="Back to login"
 					></FormButton>

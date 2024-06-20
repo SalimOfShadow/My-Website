@@ -6,7 +6,7 @@ const FormButton = (props) => {
 			<input
 				className={'inputButton'}
 				type="button"
-				disabled={props.buttonState}
+				disabled={props.disabled}
 				onClick={props.onClick}
 				value={props.value}
 			/>
