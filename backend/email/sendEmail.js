@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/userSchema.js'); // Update the path for User model
 
 const nodemailer = require('nodemailer');
+
 const generateVerificationEmail = require('../email/templates/verification.js');
 const generateResetEmail = require('../email/templates/resetPassword.js');
 
@@ -11,8 +12,8 @@ const transporter = nodemailer.createTransport({
 	host: 'smtp.ethereal.email',
 	port: 587,
 	auth: {
-		user: 'delphia.jacobi@ethereal.email',
-		pass: 'zKxwZz7r3VbyXsXFkk',
+		user: 'gonzalo.marks89@ethereal.email',
+		pass: 'tQtnp3STaMmWb1mm83',
 	},
 });
 

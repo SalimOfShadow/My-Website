@@ -96,16 +96,16 @@ const RegisterForm = (props) => {
 		// Handles MongoDB confict error
 		if (response.status === 409) {
 			setIsLoading(false);
-			const errorMessage = await response.json();
-			if (errorMessage.error.split(' ')[1] === 'username') {
+			const data = await response.json();
+			if (data.error.split(' ')[1] === 'username') {
 				//If the error complains about an username conflict
 				setTimeout(() => {
-					setUsernameError(errorMessage.error);
+					setUsernameError(data.error);
 				}, 400);
 				//If the error complains about an email conflict
-			} else if (errorMessage.error.split(' ')[1] === 'email') {
+			} else if (data.error.split(' ')[1] === 'email') {
 				setTimeout(() => {
-					setEmailError(errorMessage.error);
+					setEmailError(data.error);
 				}, 400);
 			}
 			setTimeout(() => {
