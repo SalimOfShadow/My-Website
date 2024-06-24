@@ -17,7 +17,7 @@ import {
 	validateEmail,
 	validatePassword,
 } from '../../utils/validateCredentials';
-
+import { isLogged } from '../../utils/isLogged';
 import { handleResponse } from '../../utils/handleResponses';
 
 const RegisterForm = (props) => {
@@ -32,6 +32,7 @@ const RegisterForm = (props) => {
 	const [topMessage, setTopMessage] = useState('');
 	const [buttonDisabled, setButtonDisabled] = useState(false);
 	const [isLoading, setIsLoading] = useState(false);
+	const [logged, setLogged] = useState(null);
 
 	useEffect(() => {
 		setTopMessage({
@@ -39,6 +40,15 @@ const RegisterForm = (props) => {
 			className: '',
 		});
 	}, [isLoading]);
+
+	useEffect(() => {
+		const checkLoginStatus = async () => {
+			const state = await isLogged();
+			setLogged(state);
+		};
+
+		checkLoginStatus();
+	}, []);
 
 	const logUser = async (email, password) => {
 		setIsLoading(true);
@@ -88,10 +98,16 @@ const RegisterForm = (props) => {
 		}
 	};
 
-	const handleClick = (button) => {
-		if (button === 'login' && validateCredentials()) {
-			setButtonDisabled(true);
-			logUser(email, password);
+	const handleClick = async (button) => {
+		if (button === 'login') {
+			if (logged) {
+				navigate('/home');
+				return;
+			}
+			if (validateCredentials()) {
+				setButtonDisabled(true);
+				logUser(email, password);
+			}
 		}
 		if (button === 'register') {
 			navigate('/register');
