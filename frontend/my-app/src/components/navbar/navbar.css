@@ -1,0 +1,7 @@
+.navbar {
+	display: block;
+	position: fixed;
+	top: 0;
+	margin-top: 2.3%;
+	background-color: hsla(258, 93%, 53%, 0.949);
+}

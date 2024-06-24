@@ -1,12 +1,10 @@
-.page-container {
+.main-page-container {
 	display: flex;
 	position: fixed;
 	width: 2500px;
-	height: 1130px;
+	height: 1200px;
+	margin: auto;
 	opacity: 0.16;
 	border-radius: 6px;
 	background-color: aliceblue;
-}
-.navbar {
-	position: fixed;
 }

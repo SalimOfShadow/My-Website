@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../components/homepage/homepage.css';
+import '../components/main-page/mainpage.css';
 import {
 	Background,
 	TopBezel,
 	BottomBezel,
 } from '../components/background/Background';
-import Homepage from '../components/homepage/HomeComponent';
+import MainPage from '../components/main-page/MainPage';
+import ResponsiveAppBar from '../components/navbar/Navbar';
 
 const Home = (props) => {
 	return (
 		<div className="mainContainer">
 			{' '}
-			{/* Add class name to main container */}
-			<Homepage />
+			<ResponsiveAppBar></ResponsiveAppBar>
+			<MainPage />
 			<Background
 				source={require('../components/background/background-images/bg-img.png')}
 			></Background>
