@@ -132,7 +132,14 @@ const ChangePasswordForm = () => {
 		<div className={'mainContainer'}>
 			<AnimatePresence>
 				{(validURL && (
-					<motion.div className="form-container" transition={{ duration: 1 }}>
+					<motion.div
+						className="form-container"
+						animate={{ height: 'auto' }}
+						transition={{ duration: 0.1 }}
+						exit={{ height: 0 }}
+						key={'modal'}
+						layout
+					>
 						<FormTitle title="Change Password"></FormTitle>
 						<br />
 						<AnimatePresence>
@@ -157,6 +164,7 @@ const ChangePasswordForm = () => {
 							placeholder="Enter your password here"
 							onChange={(ev) => setPassword(ev.target.value)}
 							error={passwordError}
+							type="password"
 						></FormInput>
 						<br />
 
@@ -164,6 +172,7 @@ const ChangePasswordForm = () => {
 							value={confirmPassword}
 							placeholder="Confirm your password here"
 							onChange={(ev) => setConfirmPassword(ev.target.value)}
+							type="password"
 							error={passwordError}
 						></FormInput>
 

@@ -13,7 +13,10 @@ router.post('/forgot-password', async (req, res) => {
 		const email = req.body.email;
 		const user = await User.findOne({ email });
 		if (!user) {
-			res.status(404).send("Couldn't find a matching email");
+			// Send 200 OK to throw off the user
+			res.status(200).send({
+				message: 'A password recovery link has been sent to your email',
+			});
 			return;
 		}
 		const secret = process.env.JWT_SECRET + user.hash;
@@ -32,7 +35,6 @@ router.post('/forgot-password', async (req, res) => {
 
 		console.log(url);
 		res.status(200).send({
-			redirect: url,
 			message: 'A password recovery link has been sent to your email',
 		});
 	} catch (err) {

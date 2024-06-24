@@ -19,6 +19,7 @@ const FormInput = (props) => {
 				placeholder={props.placeholder}
 				onChange={props.onChange}
 				className={'inputBox'}
+				type={props.type}
 			/>
 		</div>
 	);

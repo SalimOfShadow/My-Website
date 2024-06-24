@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../components/login/login.css';
+import '../components/homepage/homepage.css';
 import {
 	Background,
 	TopBezel,
 	BottomBezel,
 } from '../components/background/Background';
-import Homepage from '../components/homepage/Homepage';
+import Homepage from '../components/homepage/HomeComponent';
 
 const Home = (props) => {
 	return (

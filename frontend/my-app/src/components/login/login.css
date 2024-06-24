@@ -1,197 +1,91 @@
 br {
-  user-select: none;
+	user-select: none;
 }
 
 .mainContainer {
-  display: flex;
-  background-color: transparent;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+	display: flex;
+	background-color: transparent;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
 }
-.form-container {
-  display: flex;
-  background-color: rgba(157, 157, 157, 0.377);
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 20px;
-}
+
 .background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 1;
-  z-index: -1;
-}
-.titleContainer {
-  flex-direction: column;
-  font-size: 80px;
-  font-weight: bolder;
-  font-family: "Times New Roman", Times, serif;
-  color: rgb(0, 255, 149);
-  text-shadow: 1px 1px 10px rgb(12, 155, 19), 1px 1px 10px rgb(79, 255, 9);
-  padding-top: 20px;
-  margin-bottom: 10px;
-  user-select: none;
-  align-items: center;
-  justify-content: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 1;
+	z-index: -1;
 }
 
 .resultContainer,
 .historyItem {
-  flex-direction: row;
-  display: flex;
-  width: 400px;
-  align-items: center;
-  justify-content: space-between;
+	flex-direction: row;
+	display: flex;
+	width: 400px;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .historyContainer {
-  flex-direction: column;
-  display: flex;
-  height: 200px;
-  align-items: center;
-  flex-grow: 5;
-  justify-content: flex-start;
-}
-
-.buttonContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 260px;
-}
-
-.inputContainer {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  max-width: 612px;
-}
-
-.inputContainer > .errorLabel {
-  justify-content: center;
-  max-width: 612px;
-  padding: 2px 5px;
-  margin-top: 2px;
-  color: red;
-  font-size: 24px;
-  background-color: rgba(95, 20, 20, 0.775);
-  border-radius: 7px;
-}
-.topMessage {
-  display: inline-block;
-  max-width: 612px;
-  transition: 0.5s;
-  padding-left: 2px;
-  padding-right: 2px;
-  margin-bottom: 10px;
-  font-size: 24px;
-  border-radius: 7px;
-}
-
-.topMessage.true {
-  color: rgb(46, 223, 46);
-  background-color: rgba(21, 102, 12, 0.775);
-}
-
-.topMessage.false {
-  color: rgb(223, 46, 46);
-  background-color: rgba(102, 12, 21, 0.775);
-}
-
-.inputBox {
-  height: 50px;
-  width: 60vw;
-  font-size: large;
-  border-radius: 8px;
-  padding-left: 8px;
-  max-width: 550px;
+	flex-direction: column;
+	display: flex;
+	height: 200px;
+	align-items: center;
+	flex-grow: 5;
+	justify-content: flex-start;
 }
 
 .forgot-password {
-  font-size: calc(20px * 0.875);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: rgba(0, 255, 255, 0.74);
-  text-align: center;
-  user-select: none;
-  border-style: solid;
-  border-width: 2px;
-  border-color: rgba(0, 0, 139, 0.788);
-  border-radius: 8px;
-  width: 30vw;
-  height: calc(30px * 0.875);
-  max-width: 250px;
-  max-height: 115px;
-  margin-top: 8px;
-  align-self: flex-end;
-  background-color: rgba(0, 110, 255, 0.575);
+	font-size: calc(20px * 0.875);
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	color: rgba(0, 255, 255, 0.74);
+	text-align: center;
+	user-select: none;
+	border-style: solid;
+	border-width: 2px;
+	border-color: rgba(0, 0, 139, 0.788);
+	border-radius: 8px;
+	width: 30vw;
+	height: calc(30px * 0.875);
+	max-width: 250px;
+	max-height: 115px;
+	margin-top: 8px;
+	align-self: flex-end;
+	background-color: rgba(0, 110, 255, 0.575);
 }
 @media only screen and (max-width: 640px) and (min-height: 106.67px) {
-  .forgot-password {
-    height: calc(55px * 0.875);
-  }
+	.forgot-password {
+		height: calc(55px * 0.875);
+	}
 }
 @media only screen and (max-width: 320px) and (min-height: 210.67px) {
-  .forgot-password {
-    height: calc(75px * 0.875);
-    font-size: calc(20px * 0.875);
-  }
+	.forgot-password {
+		height: calc(75px * 0.875);
+		font-size: calc(20px * 0.875);
+	}
 }
 @media only screen and (max-width: 240px) and (min-height: 160px) {
-  .forgot-password {
-    font-size: calc(15px * 0.875);
-  }
+	.forgot-password {
+		font-size: calc(15px * 0.875);
+	}
 }
 @media only screen and (max-width: 200px) and (min-height: 120px) {
-  .forgot-password {
-    font-size: calc(13px * 0.875);
-  }
+	.forgot-password {
+		font-size: calc(13px * 0.875);
+	}
 }
 
 .forgot-password:hover {
-  transition: 0.1s;
-  cursor: pointer;
-  filter: brightness(120%);
+	transition: 0.1s;
+	cursor: pointer;
+	filter: brightness(120%);
 }
 
 .forgot-password:active {
-  transition: 0s;
-  cursor: pointer;
-  filter: brightness(90%);
-}
-
-.inputButton {
-  width: 60vh;
-  height: 50px;
-  margin-bottom: 50px;
-  font-size: 36px;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: rgb(48, 150, 57);
-  font-weight: 900;
-  background-color: rgb(0, 255, 149);
-  box-shadow: 1px 1px 10px rgb(12, 155, 19), 1px 1px 10px rgb(79, 255, 9);
-  text-shadow: 1px 2px 18px rgb(255, 255, 255), 2px 1px 10px rgb(0, 156, 26);
-  border-radius: 8px;
-  border: 0px solid grey; /* otherwise it inherits from before */
-  max-width: 420px;
-}
-.inputButton:hover {
-  transition: 0.1s;
-  cursor: pointer;
-  filter: brightness(110%);
-}
-.inputButton:active {
-  transition: 0s;
-  cursor: pointer;
-  filter: brightness(90%);
+	transition: 0s;
+	cursor: pointer;
+	filter: brightness(90%);
 }

@@ -43,7 +43,7 @@ const ForgotForm = () => {
 					className: 'true',
 				});
 				setTimeout(() => {
-					window.location.href = '/';
+					window.location.href = '/login';
 				}, 2000);
 			} else {
 				console.error('Failed to send password reset email');
@@ -80,9 +80,16 @@ const ForgotForm = () => {
 	return (
 		<div className={'mainContainer'}>
 			<AnimatePresence>
-				<motion.div className="form-container" transition={{ duration: 1 }}>
+				<motion.div
+					className="form-container"
+					animate={{ height: 'auto' }}
+					transition={{ duration: 0.1 }}
+					exit={{ height: 0 }}
+					key={'modal'}
+					layout
+				>
 					<FormTitle title="Password Reset"></FormTitle>
-					<br />
+					<br />{' '}
 					<AnimatePresence>
 						{isLoading && (
 							<motion.div
@@ -106,14 +113,12 @@ const ForgotForm = () => {
 						error={emailError}
 					></FormInput>
 					<br />
-
 					<FormInput
 						value={confirmEmail}
 						placeholder="Confirm your email here"
 						onChange={(ev) => setConfirmEmail(ev.target.value)}
 						error={emailError}
 					></FormInput>
-
 					<br />
 					<FormButton
 						disabled={buttonInactive}
