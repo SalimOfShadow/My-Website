@@ -34,7 +34,7 @@ const ProtectedRoute = ({ children }) => {
 	if (!logged) {
 		console.log('You are not logged in');
 		setTimeout(() => {
-			navigate('/');
+			navigate('/login');
 		}, 1000);
 		return (
 			<div className="mainContainer">

@@ -13,8 +13,8 @@ const Home = (props) => {
 	return (
 		<div className="mainContainer">
 			{' '}
-			<ResponsiveAppBar></ResponsiveAppBar>
 			<MainPage />
+			<ResponsiveAppBar />
 			<Background
 				source={require('../components/background/background-images/bg-img.png')}
 			></Background>

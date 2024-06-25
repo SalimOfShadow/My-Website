@@ -1,7 +1,46 @@
 .navbar {
 	display: block;
 	position: fixed;
-	top: 0;
+	top: 0px;
+
 	margin-top: 2.3%;
 	background-color: hsla(258, 93%, 53%, 0.949);
+}
+
+.navbar-logo,
+.zoomed-navbar-logo {
+	width: 40px;
+	height: 40px;
+	border-radius: 7px;
+	margin-right: 20px;
+}
+.navbar-logo:hover,
+.zoomed-navbar-logo:hover {
+	transition: 0.2s;
+	cursor: pointer;
+	filter: brightness(135%);
+}
+.navbar-logo:active,
+.zoomed-navbar-logo:active {
+	transition: 0.02s;
+	cursor: pointer;
+	filter: brightness(95%);
+}
+@media only screen and (max-width: 900px) {
+	.navbar-logo {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	.zoomed-navbar-logo {
+		display: none;
+	}
+}
+
+.navbar-option:hover {
+	background-color: #0303033f;
+}
+.navbar-container {
+	margin-top: 10px;
 }

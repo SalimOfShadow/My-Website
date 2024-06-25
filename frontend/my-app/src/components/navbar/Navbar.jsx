@@ -12,12 +12,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+
 import { logout } from '../../utils/logout';
 import { useNavigate } from 'react-router-dom';
 
 import './navbar.css';
+import siteLogo from '../center-character/characters-images/Kyo.png';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Projects', 'Socials', 'About me'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -36,6 +38,7 @@ function ResponsiveAppBar() {
 	const handleCloseNavMenu = () => {
 		setAnchorElNav(null);
 	};
+	const handleLogoClick = () => {};
 
 	const handleCloseUserMenu = () => {
 		setAnchorElUser(null);
@@ -49,9 +52,14 @@ function ResponsiveAppBar() {
 
 	return (
 		<AppBar position="static" className="navbar">
-			<Container maxWidth="xl">
+			<Container maxWidth="xl" className="navbar-container">
 				<Toolbar disableGutters>
-					<AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+					{/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
+					<img
+						src={siteLogo}
+						className="navbar-logo"
+						onClick={handleLogoClick}
+					></img>
 					<Typography
 						variant="h6"
 						noWrap
@@ -61,13 +69,13 @@ function ResponsiveAppBar() {
 							mr: 2,
 							display: { xs: 'none', md: 'flex' },
 							fontFamily: 'monospace',
-							fontWeight: 700,
+							fontWeight: 600,
 							letterSpacing: '.3rem',
 							color: 'inherit',
 							textDecoration: 'none',
 						}}
 					>
-						LOGO
+						SalimOfShadow
 					</Typography>
 
 					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -78,6 +86,7 @@ function ResponsiveAppBar() {
 							aria-haspopup="true"
 							onClick={handleOpenNavMenu}
 							color="inherit"
+							className="navbar-option"
 						>
 							<MenuIcon />
 						</IconButton>
@@ -106,7 +115,12 @@ function ResponsiveAppBar() {
 							))}
 						</Menu>
 					</Box>
-					<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+					{/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+					<img
+						src={siteLogo}
+						className="zoomed-navbar-logo"
+						onClick={handleLogoClick}
+					></img>
 					<Typography
 						variant="h5"
 						noWrap
@@ -123,13 +137,14 @@ function ResponsiveAppBar() {
 							textDecoration: 'none',
 						}}
 					>
-						LOGO
+						SalimOfShadow
 					</Typography>
 					<Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
 						{pages.map((page) => (
 							<Button
 								key={page}
 								onClick={handleCloseNavMenu}
+								className="navbar-option"
 								sx={{ my: 2, color: 'white', display: 'block' }}
 							>
 								{page}

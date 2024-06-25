@@ -71,7 +71,7 @@ const RegisterForm = (props) => {
 				setIsLoading(false);
 				setButtonDisabled(true);
 				setTimeout(() => {
-					navigate('/');
+					navigate('/home');
 				}, 2000);
 				return;
 			} else {
